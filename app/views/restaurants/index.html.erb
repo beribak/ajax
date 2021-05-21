@@ -5,7 +5,10 @@
 
       <ul>
         <% @restaurants.each do |restaurant| %>
-          <li><%= link_to restaurant.name, restaurant_path(restaurant) %></li>
+          <li>
+            <%= link_to restaurant.name, restaurant_path(restaurant) %>
+            <small><%= link_to "Delete", restaurant_path(restaurant), method: :delete, data: { confirm: "Are you sure to remove #{restaurant.name}" }, remote: true %></small>  
+          </li>
         <% end %>
       </ul>
     </div>
