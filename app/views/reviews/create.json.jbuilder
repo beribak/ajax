@@ -1,6 +1,6 @@
 if @review.persisted?
-  json.form json.partial!("reviews/form.html.erb", restaurant: @restaurant, review: Review.new)
-  json.inserted_item json.partial!("restaurants/review.html.erb", review: @review)
+  json.form render(partial: "reviews/form", formats: :html, locals: {restaurant: @restaurant, review: Review.new})
+  json.inserted_item render(partial: "reviews/review", formats: :html, locals: {review: @review})
 else
-  json.form json.partial!("reviews/form.html.erb", restaurant: @restaurant, review: @review)
+  json.form render(partial: "reviews/form", formats: :html, locals: {restaurant: @restaurant, review: @review})
 end

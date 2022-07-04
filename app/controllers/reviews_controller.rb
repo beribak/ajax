@@ -6,10 +6,10 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       if @review.save
-        format.html { redirect_to restaurant_path(@restaurant, anchor: "review-#{@review.id}") }
+        format.html { redirect_to restaurant_path(@restaurant) }
         format.json
       else
-        format.html { render 'restaurants/show' }
+        format.html { render "restaurants/show", status: :unprocessable_entity }
         format.json
       end
     end
