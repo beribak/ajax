@@ -4,10 +4,6 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["items", "form"]
 
-  connect() {
-    this.csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute("content")
-  }
-
   send(event) {
     event.preventDefault()
     fetch(this.formTarget.action, {
